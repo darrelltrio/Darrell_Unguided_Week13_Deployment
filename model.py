@@ -79,4 +79,11 @@ print("-" * 40)
 joblib.dump(preprocessor, 'preprocessor.sav')
 joblib.dump(model, 'house_model.sav')
 
+# Create a dictionary of scores
+scores = {'r2': r2, 'rmse': rmse}
+
+# Save it
+joblib.dump(scores, 'model_scores.sav')
+print("Scores saved to 'model_scores.sav'")
+
 print("Success! Files saved: 'preprocessor.sav' and 'house_model.sav'")

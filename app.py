@@ -6,8 +6,16 @@ import numpy as np
 # Load the saved tools
 preprocessor = joblib.load('preprocessor.sav')
 model = joblib.load('house_model.sav')
+scores = joblib.load('model_scores.sav')
 
 st.title("House Price Prediction App")
+# Display the scores dynamically
+col1, col2 = st.columns(2)
+with col1:
+    st.metric("Model Accuracy (R²)", f"{scores['r2']:.2%}")
+with col2:
+    st.metric("Average Error (RMSE)", f"${scores['rmse']:,.0f}")
+    
 st.write("Enter house details below to estimate the price.")
 
 # Input Form
